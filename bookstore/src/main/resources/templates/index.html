@@ -60,6 +60,7 @@
   color: #D8000C;
   background-color: #FFBABA;
 }
+
 	</style>
 </head>
 <body class="host_version">
@@ -68,10 +69,10 @@
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header tit-up">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <center><h4 class="modal-title" style="color:blue;">LOGIN</h4></center>
-            </div>
+<!--            <div class="modal-header tit-up">-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+<!--                <center><h4 class="modal-title" style="color:blue;">LOGIN</h4></center>-->
+<!--            </div>-->
             <div class="modal-body customer-box row">
                 <div class="col-md-12">
                     <!-- Tab panes -->
@@ -81,8 +82,8 @@
                                 <div class="form-group">
                                     <form type="submit">
                                     <div class="col-sm-12">
-                                        <label style="color:blue;">Username<span style="color:red;">(*)</span></label>
-                                        <input class="form-control" id="username" name="username" placeholder="Name" type="text" onkeyup="myFunction1()">
+                                        <label for="username" style="color:black;">Username<span style="color:red;"> *</span></label>
+                                        <span><input class="form-control" style="color:black;" id="username" name="username" placeholder="Name" type="text" onkeyup="myFunction1()"></span>
                                         <div id="error1" class="error-msg" style="display:none;">
                                             <i class="fa fa-times-circle"></i>
                                             This field is required!
@@ -92,8 +93,8 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <label style="color:blue;">Password<span style="color:red;">(*)</span></label>
-                                        <input class="form-control" id="password" name="password" placeholder="Password" type="password" onkeyup="myFunction2()">
+                                        <label style="color:black;">Password<span style="color:red;"> *</span></label>
+                                        <input class="form-control" style="color:black;" id="password" name="password" placeholder="Password" type="password" onkeyup="myFunction2()">
                                         <div id="error2" class="error-msg" style="display:none;">
                                             <i class="fa fa-times-circle"></i>
                                             This field is required!
@@ -101,12 +102,13 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        <center>
-                                            <button id="btnLogin" type="submit" class="btn btn-light btn-radius btn-brd grd1" >
-                                                Submit
+                                    <div class="col-sm-12" align="right">
+                                            <button id="btnLogin" type="submit" class="btn btn-primary" >
+                                                Login
                                             </button>
-                                        </center>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true">
+                                                Cancel
+                                            </button>
                                     </div>
                                 </div>
 
@@ -175,10 +177,6 @@
                         <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <div class="modal-header tit-up">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <center><h4 class="modal-title" style="color:blue;">REGISTER</h4></center>
-                                    </div>
                                     <div class="modal-body customer-box row">
                                         <div class="col-md-12">
                                             <!-- Tab panes -->
@@ -188,8 +186,8 @@
                             <form role="form" class="form-horizontal">
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <label style="color:blue;">Username<span style="color:red;">(*)</span></label>
-                                        <input class="form-control" id="user" placeholder="username" name="username" type="text" autofocus>
+                                        <label style="color:black;">Username<span style="color:red;">(*)</span></label>
+                                        <input class="form-control" style="color:black;" id="user" placeholder="username" name="username" type="text" autofocus>
                                         <div id="error3" class="error-msg" style="display:none;">
                                             <i class="fa fa-times-circle"></i>
                                             This field is required!
@@ -198,8 +196,8 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <label style="color:blue;">Email<span style="color:red;">(*)</span></label>
-                                        <input class="form-control" id="email" placeholder="Email" name="email" type="email">
+                                        <label style="color:black;">Email<span style="color:red;">(*)</span></label>
+                                        <input class="form-control" style="color:black;" id="email" placeholder="Email" name="email" type="email">
                                         <div id="error4" class="error-msg" style="display:none;">
                                             <i class="fa fa-times-circle"></i>
                                             This field is required!
@@ -208,8 +206,8 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <label style="color:blue;">Password<span style="color:red;">(*)</span></label>
-                                        <input class="form-control" id="pass" placeholder="Password" name="password" type="password">
+                                        <label style="color:black;">Password<span style="color:red;">(*)</span></label>
+                                        <input class="form-control" style="color:black;" id="pass" placeholder="Password" name="password" type="password">
                                         <div id="error5" class="error-msg" style="display:none;">
                                             <i class="fa fa-times-circle"></i>
                                             This field is required!
@@ -219,25 +217,26 @@
 
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <label style="color:blue;">FirstName</label>
-                                        <input class="form-control" id="firstName" placeholder="firstname" name="firstName" type="text" >
+                                        <label style="color:black;">FirstName</label>
+                                        <input class="form-control" style="color:black;" id="firstName" placeholder="firstname" name="firstName" type="text" >
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="col-sm-12">
-                                        <label style="color:blue;">LastName</label>
-                                        <input class="form-control" id="lastName" placeholder="lastname" name="lastName" type="text" >
+                                        <label style="color:black;">LastName</label>
+                                        <input class="form-control" style="color:black;" id="lastName" placeholder="lastname" name="lastName" type="text" >
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-sm-12">
-                                        <center>
-                                            <button type="button" id="btnRegistration" class="btn btn-light btn-radius btn-brd grd1">
-                                                Submit
+                                    <div class="col-sm-12" align="right">
+                                            <button type="button" id="btnRegistration" class="btn btn-primary">
+                                                Register
                                             </button>
-                                        </center>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true">
+                                                Cancel
+                                            </button>
 
                                     </div>
                                 </div>
@@ -332,11 +331,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <ul class="nav navbar-nav navbar-left">
-                    <a class="btn-light btn-radius btn-brd log" href="index1" style="color:blue;"><i class="fa fa-book" aria-hidden="true"></i>BOOKSTORE</a>
-                </ul>
+
             </div>
             <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a class="btn btn-outline-info" href="index1" style="color:blue;"><i class="fa fa-book" aria-hidden="true"></i>BOOKSTORE</a></li>
+                    <li><a class="btn btn-outline-info" href="index" style="color:blue;"><i class="fa fa-home" aria-hidden="true"></i>HOMEPAGE</a></li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="btn-light btn-radius btn-brd log" href="#" data-toggle="modal" data-target="#login"><i class="flaticon-padlock"></i> LOGIN</a></li>
                     <li><a class="btn-light btn-radius btn-brd log" href="#" data-toggle="modal" data-target="#register"><i class="flaticon-padlock"></i> REGISTER</a></li>

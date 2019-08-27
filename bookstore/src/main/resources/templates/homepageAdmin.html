@@ -95,7 +95,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html" style="color:blue;">BOOKSTORE</a>
+                <a class="navbar-brand" href="" style="color:blue;">BOOKSTORE</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -111,7 +111,7 @@
                          );
                     </script>
 
-                    <button id="btnLogout" type="button" class="fa fa-sign-out fa-fw">Logout</button>
+                    <button id="btnLogout" type="button" class="btn btn-warning" ><i class="fa fa-sign-out fa-fw"></i>Logout</button>
                 </ul>
             </div>
         </div>
@@ -174,9 +174,10 @@
                       window.localStorage.setItem('lengthBook',data.length);
 
                     window.localStorage.setItem('previous',1);
+                    var amount=window.localStorage.getItem('amount');
 							$.ajax({
                      type: "GET",
-                      url: "/api/books/paging?pageNumber="+1+"&amountBook="+2+"&content="+$('#search').val(),
+                      url: "/api/books/paging?pageNumber="+1+"&amountBook="+amount+"&content="+$('#search').val(),
                       dataType: "json",
                       contentType: 'application/json',
                       success: function (result) {
@@ -202,7 +203,7 @@
                                     );
                                 }
                       			var lengthBook=window.localStorage.getItem('lengthBook');
-                                var pageNumber=(lengthBook/2)+1;
+                                var pageNumber=(lengthBook-1)/amount+1;
                                  window.localStorage.setItem('pageNumber',Math.floor(pageNumber));
                                 $("#paging").append(
                                 	    '<div class="pagination">'
@@ -313,7 +314,7 @@
                                     );
                                 }
                       			var lengthBook=window.localStorage.getItem('lengthBook');
-                                var pageNumber=(lengthBook/amount)+1;
+                                var pageNumber=(lengthBook-1)/amount+1;
                                  window.localStorage.setItem('pageNumber',Math.floor(pageNumber));
                                 $("#paging").append(
                                 	    '<div class="pagination">'
@@ -379,7 +380,7 @@
 
                                 }
                                 var lengthBook=window.localStorage.getItem('lengthBook');
-                                var pageNumber=(lengthBook/2)+1;
+                                var pageNumber=(lengthBook-1)/amount+1;
                                 window.localStorage.setItem('pageNumber',Math.floor(pageNumber));
                                 $("#paging").append(
                                 	    '<div class="pagination">'
@@ -445,7 +446,7 @@
                                     );
                                 }
                       			var lengthBook=window.localStorage.getItem('lengthBook');
-                                var pageNumber=(lengthBook/amount)+1;
+                                var pageNumber=(lengthBook-1)/amount+1;
                                 $("#paging").append(
                                 	    '<div class="pagination">'
                                 		+'<button id="previous" onClick="reply_pre(this.id)">'+"<<"+'</button>'
@@ -515,7 +516,7 @@
                                             );
                                         }
                                         var lengthBook=window.localStorage.getItem('lengthBook');
-                                        var pageNumber=(lengthBook/amount)+1;
+                                        var pageNumber=(lengthBook-1)/amount+1;
                                         $("#paging").append(
                                                 '<div class="pagination">'
                                                 +'<button id="previous" onClick="reply_pre(this.id)">'+"<<"+'</button>'
@@ -588,7 +589,7 @@
                                             );
                                         }
                                         var lengthBook=window.localStorage.getItem('lengthBook');
-                                        var pageNumber=(lengthBook/amount)+1;
+                                        var pageNumber=(lengthBook-1)/amount+1;
                                         $("#paging").append(
                                                 '<div class="pagination">'
                                                 +'<button id="previous" onClick="reply_pre(this.id)">'+"<<"+'</button>'
