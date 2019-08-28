@@ -99,8 +99,8 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a class="active" href="homepageAdmin">Home</a></li>
-                    <li><a class="active" href="bookWaiting">List Book waiting.. </a></li>
+                    <li><a class="active" href="homepage-admin">Home</a></li>
+                    <li><a class="active" href="book-disable">Book disable </a></li>
 
                 </ul>
                 <ul id="logo" class="nav navbar-nav navbar-right">
@@ -149,8 +149,8 @@
 <div class="item">
     <div class="container" style="display: flex;">
         <div class="" style="display:inline">
-            <label>Show  </label>
-            <select id="myselect">
+            <label style="color:blue">Show  </label>
+            <select id="myselect" class="form-control">
                 <option value="10" selected>2</option>
                 <option value="20">3</option>
                 <option value="30">4</option>
@@ -160,8 +160,8 @@
         </div>
         <div class="spacer"></div>
         <div class="" style="display:inline">
-            <label>Search  </label>
-            <input  id="search" placeholder="Search" type="text" >
+            <label style="color:blue">Search  </label>
+            <span><input class="form-control" style="color:black;"  id="search" placeholder="Search" type="text" ></span>
             <script>
 					$("#search").on("keyup", function(e){
 					if(e.keyCode==13){
@@ -174,7 +174,7 @@
                       window.localStorage.setItem('lengthBook',data.length);
 
                     window.localStorage.setItem('previous',1);
-                    var amount=window.localStorage.getItem('amount');
+                    var amount= window.localStorage.getItem('amount');
 							$.ajax({
                      type: "GET",
                       url: "/api/books/paging?pageNumber="+1+"&amountBook="+amount+"&content="+$('#search').val(),
@@ -183,7 +183,7 @@
                       success: function (result) {
                       $("#bookTable").empty();
                                             $("#bookTable").append(
-                                            '<div class="list-book col-lg-12">'
+                                            '<div class="list-book col-lg-12" align="center">'
                                         +'<div class="container-fluid">'
                                             +'<div class="row list-row-item">'
 
@@ -193,9 +193,9 @@
                       $("#paging").empty();
                       for(var i=0;i<result.length;i++){
                                     $("#bookTable").append(
-                                             '<div class="col-lg-3 item">'
+                                             '<div class="col-lg-3 item" align="center">'
                                            +'<a href=""><img src="https://auteur.g5plus.net/wp-content/uploads/2018/11/product-20-330x462.jpg" class="img-item"></a>'
-                                           +'<b ><h4 class="title-item" ><a href=/book/' + result[i].id + ">" +result[i].title+'</a></h4></b>'
+                                           +'<b ><h4 class="title-item" ><a href=/bookAdmin/' + result[i].id + " class='stretched-link'>" +result[i].title+'</a></h4></b>'
                                            +'<p>Create by: '+result[i].author+'</p>'
                                            +'<p>At: '+result[i].dayCreate+'</p>'
                                         +'</div>'
@@ -207,27 +207,27 @@
                                  window.localStorage.setItem('pageNumber',Math.floor(pageNumber));
                                 $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="previous" onClick="reply_pre(this.id)">'+"<<"+'</button>'
+                                		+'<button id="previous" onClick="reply_pre(this.id)" class="btn btn-default text-faded">'+"<<"+'</button>'
                                 	    +'</div>'
                                 	);
                                 for(var i=1;i<=pageNumber;i++){
                                     if(i==1){
                                     $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9">'+i+'</button>'
+                                		+'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9" class="btn btn-default text-faded">'+i+'</button>'
                                 	    +'</div>'
                                 	);
                                     }else{
                                 	$("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="'+i+'" onClick="reply_click(this.id)">'+i+'</button>'
+                                		+'<button id="'+i+'" onClick="reply_click(this.id)" class="btn btn-default text-faded"> '+i+'</button>'
                                 	    +'</div>'
                                 	);
                                 	}
                                 }
                                 $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="next" onClick="reply_next(this.id)">'+">>"+'</button>'
+                                		+'<button id="next" onClick="reply_next(this.id)" class="btn btn-default text-faded">'+">>"+'</button>'
                                 	    +'</div>'
                                 	);
                                 },
@@ -306,7 +306,7 @@
                                     $("#bookTable").append(
                                              '<div class="col-lg-3 item">'
                                            +'<a href=""><img src="https://auteur.g5plus.net/wp-content/uploads/2018/11/product-20-330x462.jpg" class="img-item"></a>'
-                                           +'<b ><h4 class="title-item" ><a href=/bookAdmin/' + result[i].id + ">" +result[i].title+'</a></h4></b>'
+                                           +'<b ><h4 class="title-item" ><a href=/bookAdmin/' + result[i].id + " class='stretched-link'>" +result[i].title+'</a></h4></b>'
                                            +'<p>Create by: '+result[i].author+'</p>'
                                            +'<p>At: '+result[i].dayCreate+'</p>'
                                         +'</div>'
@@ -317,28 +317,29 @@
                                 var pageNumber=(lengthBook-1)/amount+1;
                                  window.localStorage.setItem('pageNumber',Math.floor(pageNumber));
                                 $("#paging").append(
+
                                 	    '<div class="pagination">'
-                                		+'<button id="previous" onClick="reply_pre(this.id)">'+"<<"+'</button>'
+                                		+'<button id="previous" onClick="reply_pre(this.id)" class="btn btn-default text-faded">'+"<<"+'</button>'
                                 	    +'</div>'
                                 	);
                                 for(var i=1;i<=pageNumber;i++){
                                     if(i==1){
                                     $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9">'+i+'</button>'
+                                		+'<button id="'+i+'" onClick="reply_click(this.id)" class="btn btn-default text-faded" style="background-color:#85C1E9">'+i+'</button>'
                                 	    +'</div>'
                                 	);
                                     }else{
                                 	$("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="'+i+'" onClick="reply_click(this.id)">'+i+'</button>'
+                                		+'<button id="'+i+'" onClick="reply_click(this.id)" class="btn btn-default text-faded">'+i+'</button>'
                                 	    +'</div>'
                                 	);
                                 	}
                                 }
                                 $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="next" onClick="reply_next(this.id)">'+">>"+'</button>'
+                                		+'<button id="next" onClick="reply_next(this.id)" class="btn btn-default text-faded">'+">>"+'</button>'
                                 	    +'</div>'
                                 	);
                                 },
@@ -372,7 +373,7 @@
                                     $("#bookTable").append(
                                      '<div class="col-lg-3 item">'
                                            +'<a href=""><img src="https://auteur.g5plus.net/wp-content/uploads/2018/11/product-20-330x462.jpg" class="img-item"></a>'
-                                           +'<b style="color:blue"><h4 class="title-item"><a href=/bookAdmin/' + result[i].id + ">" +result[i].title+'</a></h4></b>'
+                                           +'<b ><h4 class="title-item" ><a href=/bookAdmin/' + result[i].id + " class='stretched-link'>" +result[i].title+'</a></h4></b>'
                                            +'<p>Create by: '+result[i].author+'</p>'
                                            +'<p>At: '+result[i].dayCreate+'</p>'
                                         +'</div>'
@@ -380,31 +381,32 @@
 
                                 }
                                 var lengthBook=window.localStorage.getItem('lengthBook');
-                                var pageNumber=(lengthBook-1)/amount+1;
+                                var a=lengthBook;
+                                var pageNumber=(lengthBook-1)/2+1;
                                 window.localStorage.setItem('pageNumber',Math.floor(pageNumber));
                                 $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="previous" onClick="reply_pre(this.id)">'+"<<"+'</button>'
+                                		+'<button id="previous" onClick="reply_pre(this.id)" class="btn btn-default text-faded">'+"<<"+'</button>'
                                 	    +'</div>'
                                 	);
                                 for(var i=1;i<=pageNumber;i++){
                                 	if(i==1){
                                     $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9">'+i+'</button>'
+                                		+'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9" class="btn btn-default text-faded">'+i+'</button>'
                                 	    +'</div>'
                                 	);
                                     }else{
                                 	$("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="'+i+'" onClick="reply_click(this.id)">'+i+'</button>'
+                                		+'<button id="'+i+'" onClick="reply_click(this.id)" class="btn btn-default text-faded">'+i+'</button>'
                                 	    +'</div>'
                                 	);
                                 	}
                                 }
                                 $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="next" onClick="reply_next(this.id)">'+">>"+'</button>'
+                                		+'<button id="next" onClick="reply_next(this.id)" class="btn btn-default text-faded">'+">>"+'</button>'
                                 	    +'</div>'
                                 	);
                                 },
@@ -438,7 +440,7 @@
                                     $("#bookTable").append(
                                              '<div class="col-lg-3 item">'
                                            +'<a href=""><img src="https://auteur.g5plus.net/wp-content/uploads/2018/11/product-20-330x462.jpg" class="img-item"></a>'
-                                           +'<b style="color:blue"><h4 class="title-item"><a href=/bookAdmin/' + result[i].id + ">" +result[i].title+'</a></h4></b>'
+                                           +'<b ><h4 class="title-item" ><a href=/bookAdmin/' + result[i].id + " class='stretched-link'>" +result[i].title+'</a></h4></b>'
                                            +'<p>Create by: '+result[i].author+'</p>'
                                            +'<p>At: '+result[i].dayCreate+'</p>'
                                         +'</div>'
@@ -449,27 +451,27 @@
                                 var pageNumber=(lengthBook-1)/amount+1;
                                 $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="previous" onClick="reply_pre(this.id)">'+"<<"+'</button>'
+                                		+'<button id="previous" onClick="reply_pre(this.id)" class="btn btn-default text-faded">'+"<<"+'</button>'
                                 	    +'</div>'
                                 	);
                                 for(var i=1;i<=pageNumber;i++){
                                 	if(i==clicked_id){
                                     $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9">'+i+'</button>'
+                                		+'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9" class="btn btn-default text-faded">'+i+'</button>'
                                 	    +'</div>'
                                 	);
                                     }else{
                                 	$("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="'+i+'" onClick="reply_click(this.id)">'+i+'</button>'
+                                		+'<button id="'+i+'" onClick="reply_click(this.id)" class="btn btn-default text-faded">'+i+'</button>'
                                 	    +'</div>'
                                 	);
                                 	}
                                 }
                                 $("#paging").append(
                                 	    '<div class="pagination">'
-                                		+'<button id="next" onClick="reply_next(this.id)">'+">>"+'</button>'
+                                		+'<button id="next" onClick="reply_next(this.id)" class="btn btn-default text-faded">'+">>"+'</button>'
                                 	    +'</div>'
                                 	);
                                 },
@@ -508,7 +510,8 @@
                                             $("#bookTable").append(
                                                      '<div class="col-lg-3 item">'
                                                    +'<a href=""><img src="https://auteur.g5plus.net/wp-content/uploads/2018/11/product-20-330x462.jpg" class="img-item"></a>'
-                                                   +'<b style="color:blue"><h4 class="title-item"><a href=/bookAdmin/' + result[i].id + ">" +result[i].title+'</a></h4></b>'
+                                           +'<b ><h4 class="title-item" ><a href=/bookAdmin/' + result[i].id + " class='stretched-link'>" +result[i].title+'</a></h4></b>'
+
                                                    +'<p>Create by: '+result[i].author+'</p>'
                                                    +'<p>At: '+result[i].dayCreate+'</p>'
                                                 +'</div>'
@@ -519,27 +522,27 @@
                                         var pageNumber=(lengthBook-1)/amount+1;
                                         $("#paging").append(
                                                 '<div class="pagination">'
-                                                +'<button id="previous" onClick="reply_pre(this.id)">'+"<<"+'</button>'
+                                                +'<button id="previous" onClick="reply_pre(this.id)" class="btn btn-default text-faded">'+"<<"+'</button>'
                                                 +'</div>'
                                             );
                                         for(var i=1;i<=pageNumber;i++){
                                             if(i==idBtn){
                                             $("#paging").append(
                                                 '<div class="pagination">'
-                                                +'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9">'+i+'</button>'
+                                                +'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9" class="btn btn-default text-faded">'+i+'</button>'
                                                 +'</div>'
                                             );
                                             }else{
                                             $("#paging").append(
                                                 '<div class="pagination">'
-                                                +'<button id="'+i+'" onClick="reply_click(this.id)">'+i+'</button>'
+                                                +'<button id="'+i+'" onClick="reply_click(this.id)" class="btn btn-default text-faded">'+i+'</button>'
                                                 +'</div>'
                                             );
                                             }
                                         }
                                         $("#paging").append(
                                                 '<div class="pagination">'
-                                                +'<button id="next" onClick="reply_next(this.id)">'+">>"+'</button>'
+                                                +'<button id="next" onClick="reply_next(this.id)" class="btn btn-default text-faded">'+">>"+'</button>'
                                                 +'</div>'
                                             );
                                         },
@@ -581,7 +584,7 @@
                                             $("#bookTable").append(
                                                      '<div class="col-lg-3 item">'
                                                    +'<a href=""><img src="https://auteur.g5plus.net/wp-content/uploads/2018/11/product-20-330x462.jpg" class="img-item"></a>'
-                                                   +'<b style="color:blue"><h4 class="title-item"><a href=/bookAdmin/' + result[i].id + ">" +result[i].title+'</a></h4></b>'
+                                           +'<b ><h4 class="title-item" ><a href=/bookAdmin/' + result[i].id + " class='stretched-link'>" +result[i].title+'</a></h4></b>'
                                                    +'<p>Create by: '+result[i].author+'</p>'
                                                    +'<p>At: '+result[i].dayCreate+'</p>'
                                                 +'</div>'
@@ -592,27 +595,27 @@
                                         var pageNumber=(lengthBook-1)/amount+1;
                                         $("#paging").append(
                                                 '<div class="pagination">'
-                                                +'<button id="previous" onClick="reply_pre(this.id)">'+"<<"+'</button>'
+                                                +'<button id="previous" onClick="reply_pre(this.id)" class="btn btn-default text-faded">'+"<<"+'</button>'
                                                 +'</div>'
                                             );
                                         for(var i=1;i<=pageNumber;i++){
                                             if(i==idBtn){
                                             $("#paging").append(
                                                 '<div class="pagination">'
-                                                +'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9">'+i+'</button>'
+                                                +'<button id="'+i+'" onClick="reply_click(this.id)" style="background-color:#85C1E9" class="btn btn-default text-faded">'+i+'</button>'
                                                 +'</div>'
                                             );
                                             }else{
                                             $("#paging").append(
                                                 '<div class="pagination">'
-                                                +'<button id="'+i+'" onClick="reply_click(this.id)">'+i+'</button>'
+                                                +'<button id="'+i+'" onClick="reply_click(this.id)" class="btn btn-default text-faded">'+i+'</button>'
                                                 +'</div>'
                                             );
                                             }
                                         }
                                         $("#paging").append(
                                                 '<div class="pagination">'
-                                                +'<button id="next" onClick="reply_next(this.id)">'+">>"+'</button>'
+                                                +'<button id="next" onClick="reply_next(this.id)" class="btn btn-default text-faded">'+">>"+'</button>'
                                                 +'</div>'
                                             );
                                         },
@@ -621,7 +624,6 @@
                                         }
                           });
 							}
-
 
                         </script>
 <!-- ALL JS FILES -->

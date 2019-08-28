@@ -183,7 +183,7 @@
                       success: function (result) {
                       $("#bookTable").empty();
                                             $("#bookTable").append(
-                                            '<div class="list-book col-lg-12">'
+                                            '<div class="list-book col-lg-12" align="center">'
                                         +'<div class="container-fluid">'
                                             +'<div class="row list-row-item">'
 
@@ -193,7 +193,7 @@
                       $("#paging").empty();
                       for(var i=0;i<result.length;i++){
                                     $("#bookTable").append(
-                                             '<div class="col-lg-3 item">'
+                                             '<div class="col-lg-3 item" align="center">'
                                            +'<a href=""><img src="https://auteur.g5plus.net/wp-content/uploads/2018/11/product-20-330x462.jpg" class="img-item"></a>'
                                            +'<b ><h4 class="title-item" ><a href=/book/' + result[i].id + " class='stretched-link'>" +result[i].title+'</a></h4></b>'
                                            +'<p>Create by: '+result[i].author+'</p>'

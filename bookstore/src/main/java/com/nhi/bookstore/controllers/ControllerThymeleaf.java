@@ -11,17 +11,17 @@ public class ControllerThymeleaf {
     public String getSuccess(){
         return "success";
     }
-    @RequestMapping("/homepageUser")
+    @RequestMapping("/homepage-user")
     public String getHomepageUser(){
         return "homepageUser";
     }
 
-    @RequestMapping("/homepageAdmin")
+    @RequestMapping("/homepage-admin")
     public String getHomepageAdmin(){
         return "homepageAdmin";
     }
 
-    @RequestMapping("/bookWaiting")
+    @RequestMapping("/book-disable")
     public String getBookWaiting(){
         return "bookWaiting";
     }
@@ -46,7 +46,7 @@ public class ControllerThymeleaf {
         return "index";
     }
 
-    @RequestMapping("/myBook")
+    @RequestMapping("/my-book")
     public String getMyBook(){
         return "myBook";
     }
@@ -57,17 +57,17 @@ public class ControllerThymeleaf {
         return "book";
     }
 
-    @RequestMapping("/bookUser/{id}")
+    @RequestMapping("/book-user/{id}")
     public String bookUser(){
         return "bookUser";
     }
 
-    @RequestMapping("/bookAdmin/{id}")
+    @RequestMapping("/book-admin/{id}")
     public String bookAdmin(){
         return "bookAdmin";
     }
 
-    @RequestMapping("/editBook/{id}")
+    @RequestMapping("/edit-book/{id}")
     public String editBook(){
         return "editBookForm";
     }
