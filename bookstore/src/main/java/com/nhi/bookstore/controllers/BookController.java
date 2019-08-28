@@ -27,7 +27,6 @@ public class BookController {
         return iBookService.getListBookByUser(id);
     }
 
-    //@Secured("ROLE_MEMBER")
     @RequestMapping("/book_id/{id}")
     public Book getBookByID(@PathVariable("id") int id){
         return iBookService.getBookById(id);
