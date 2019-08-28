@@ -54,7 +54,7 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
         addRoleIfMissing("ROLE_MEMBER");
 //        addUserIfMissing("nhi", "123", "ROLE_MEMBER");
 //        addUserIfMissing("thu", "12345678", "ROLE_MEMBER");
-//        addUserIfMissing("admin", "000", "ROLE_MEMBER", "ROLE_ADMIN");
+        addUserIfMissing("admin", "000", "ROLE_MEMBER", "ROLE_ADMIN");
         if (signingKey == null || signingKey.length() == 0) {
             String jws = Jwts.builder()
                     .setSubject("BookStore")
